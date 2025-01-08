@@ -10,4 +10,3 @@ steps:
       echo "Get metadata"
       buildkite-agent meta-data get "foo"
     key: get
-    depends_on: set
