@@ -1,16 +1,13 @@
 steps:
-  - label: ":construction_worker: Build"
-    command: echo "Build the rocket"
-    key: build
-
-  - label: ":white_check_mark: Test"
-    command: echo "Test the rocket"
-    key: test
-    depends_on: build
-
-  - label: ":rocket: Deploy"
+  - label: ":white_check_mark: Set metadata"
     command: |
-      echo "Launch the rocket"
-      cat .buildkite/annotation.md | buildkite-agent annotate --style "success"
-    key: deploy
-    depends_on: test
+      echo "Set metadata"
+      buildkite-agent meta-data set "foo" "bar"
+    key: set
+
+  - label: ":rocket: Get metadata"
+    command: |
+      echo "Get metadata"
+      buildkite-agent meta-data get "foo"
+    key: get
+    depends_on: set
