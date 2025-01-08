@@ -1,12 +1,4 @@
 steps:
-  - label: ":white_check_mark: Set metadata"
-    command: |
-      echo "Set metadata"
-      buildkite-agent meta-data set "foo" "bar"
-    key: set
-
-  - label: ":rocket: Get metadata"
-    command: |
-      echo "Get metadata"
-      buildkite-agent meta-data get "foo"
-    key: get
+  - command: "echo parallel test"
+    label: "Test %n"
+    parallelism: 5
