@@ -1,4 +1,3 @@
 steps:
-  - command: "echo parallel test"
-    label: "Test %n"
-    parallelism: 5
+  - command: "curl -sSL https://raw.githubusercontent.com/buildkite/starter/main/.buildkite/pipeline.yml | buildkite-agent pipeline upload"
+    label: "Curl Test"
