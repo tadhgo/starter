@@ -17,5 +17,5 @@ steps:
             value: "beta"
           - label: "Stable"
             value: "stable"
-  - command: release.sh
+  - command: src/release.sh
     label: ":rocket:"
