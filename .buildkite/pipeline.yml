@@ -1,10 +1,10 @@
 steps:
-  - command: echo $$MY_SECRET
+  - command: echo $$MY_VAR
     plugins:
       - seek-oss/aws-sm#v2.3.2:
           env:
-            MY_SECRET: MyTestSecret
+            MY_VAR: MyTestSecret
       - docker#v1.4.0:
           image: "node:8"
           environment:
-            - MY_SECRET
+            - MY_VAR
