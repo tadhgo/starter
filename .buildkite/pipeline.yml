@@ -1,5 +1,5 @@
 steps:
-  - command: echo $MY_SECRET
+  - command: echo $$MY_SECRET
     plugins:
       - seek-oss/aws-sm#v2.3.2:
           env:
