@@ -1,3 +1,5 @@
+env: 
+  MYVAR: "bikkie"
 steps:
   - label: ":ubuntu:"
     command: ./src/show_environment.sh
