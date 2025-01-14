@@ -1,0 +1,10 @@
+env:
+  MYVAR: bikkie
+steps:
+  - label: ':ubuntu:'
+    command: ./src/show_environment.sh
+    plugins:
+      - 'docker#v3.5.0':
+          image: 'ubuntu:latest'
+          propagate-environment: true
+          mount-buildkite-agent: true
