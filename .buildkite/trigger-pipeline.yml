@@ -16,5 +16,5 @@ steps:
     depends_on: test
 
   - label: ":arrow_right: Triggering"
-    trigger: dynamic-pipeline-steps-example
+    trigger: Dynamic Pipeline Steps Example
     depends_on: deploy
