@@ -3,4 +3,4 @@ notify:
 
 steps:
   - label: ":telephone: notification test"
-  - command: "echo this a notification test"
+    command: "echo this a notification test"
