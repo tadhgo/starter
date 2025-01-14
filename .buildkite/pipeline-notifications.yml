@@ -1,0 +1,6 @@
+notify:
+  - email: "tadhg@buildkite.com"
+
+steps:
+  - label: ":telephone: notification test"
+  - command: "echo this a notification test"
