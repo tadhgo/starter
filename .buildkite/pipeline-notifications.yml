@@ -1,6 +1,3 @@
-notify:
-  - email: "tadhg@buildkite.com"
-
 steps:
   - label: ":telephone: notification test"
     command: echo "this is a step notification test"
