@@ -5,4 +5,4 @@ steps:
   - label: ":telephone: notification test"
     command: echo "this is a step notification test"
     notify:
-      - slack: "@Tadhg O'Brien"
+      - slack: "@tadhg"
