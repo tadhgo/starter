@@ -10,7 +10,7 @@ steps:
            - label: "Notify slack about soft failed step"
              command: echo "Notifying slack about the soft_failed step"
              notify:
-              - slack: "@tadhg"
+              - slack: "@Tadhg O'Brien"
                 
       YAML
       fi
