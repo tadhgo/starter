@@ -10,7 +10,17 @@ steps:
            - label: "Notify slack about soft failed step"
              command: echo "Notifying slack about the soft_failed step"
              notify:
-               - slack: "@tadhg"
-                   message: "Step1 has soft failed."
+              - slack: "@tadhg"
+                message: "Step1 has soft failed."
       YAML
       fi
+
+
+teps:
+  - label: ":telephone: notification test"
+    command: 
+      - echo "this is a step notification test"
+      - false
+    notify:
+      - slack: "@tadhg"
+        message: "soft failure step has failed"
