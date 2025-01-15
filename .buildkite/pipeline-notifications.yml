@@ -11,6 +11,5 @@ steps:
              command: echo "Notifying slack about the soft_failed step"
              notify:
               - slack: "@tadhg"
-                message: "Step1 has soft failed."
       YAML
       fi
