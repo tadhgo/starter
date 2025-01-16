@@ -9,4 +9,3 @@ steps:
           formatter:
             type: details
           context: test-summary
-  - label: "command step with no command"
