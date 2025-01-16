@@ -3,5 +3,6 @@ steps:
     key: 'tag:create'
     commands:
       - TAG=$(echo 'test-tag')
+      - "echo $TAG"
       - 'buildkite-agent meta-data set "TAG" "\${TAG}"'
       - 'buildkite-agent step update "label" ":sunglasses': 'TAG=\${TAG}"'
