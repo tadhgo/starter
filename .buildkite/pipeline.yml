@@ -1,12 +1,9 @@
 steps:  
-  - label: annotate
-    command: echo 'test'
-    plugins:
-      - bugcrowd/test-summary#v1.8.0:
-          inputs:
-            - label: rspec
-              artifact_path: artifacts/rspec*
-              type: junit
-          formatter:
-            type: details
-          context: test-summary
+- label: ":docker: configure image tag"
+    key: tag:create
+    commands:
+      - TAG=$(echo 'test-tag')
+      - buildkite-agent meta-data set "TAG" "\${TAG}"
+      - buildkite-agent step update "label" ":sunglasses: TAG=\${TAG}"
+    agents:
+      queue: ${BUILD_AGENT}
