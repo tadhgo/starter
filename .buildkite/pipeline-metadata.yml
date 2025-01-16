@@ -1,0 +1,7 @@
+steps:
+  - label: ":one-does-not-simply" upload dat metadata"
+    command: buildkite-agent meta-data set "foo" "bar" 
+    key: metadata
+  - label: "trigger dat build"
+    trigger: "dynamic-pipeline-steps-example"
+    depends_on: upload
