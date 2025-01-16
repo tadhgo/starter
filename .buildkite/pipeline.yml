@@ -1,7 +1,7 @@
 steps:
   - label: ':docker: configure image tag'
     key: 'tag:create'
-    commands |
+    commands: |
       TAG=$(date +%Y-%m-%d)
       buildkite-agent meta-data set "TAG" "$$TAG"
       buildkite-agent meta-data get "TAG"
