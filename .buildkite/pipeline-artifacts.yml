@@ -4,6 +4,6 @@ steps:
     artifact_paths:
       - "./images/*.png"
     key: upload
-  - label: ":package:"
-    command: "./src/inspect-image-artifacts.sh"
+  - label: ":shipit: Trigger build"
+    trigger: "dynamic-pipeline-steps-example"
     depends_on: upload
