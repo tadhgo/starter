@@ -1,6 +1,6 @@
 steps:  
-  command: "echo 'hello'"
   - label: annotate
+    command: echo 'test'
     plugins:
       - bugcrowd/test-summary#v1.8.0:
           inputs:
