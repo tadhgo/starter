@@ -2,4 +2,8 @@ steps:
   - label: ':docker: configure image tag'
     key: 'tag:create'
     commands:
-      - "TAG=tag-test && echo $TAG"
+      - "echo 'Shell type:' && echo $SHELL"
+      - "echo 'Environment:' && env"
+      - "TAG=tag-test"
+      - "echo 'After setting TAG:' && echo $TAG"
+      - "echo 'PWD:' && pwd"
