@@ -2,4 +2,4 @@ steps:
   - label: ':docker: configure image tag'
     key: 'tag:create'
     commands:
-      - /bin/bash -c 'TAG="tag-test" && echo "${TAG}"'
+      - /bin/bash -c 'TAG=tag-test && echo $TAG'
