@@ -1,8 +1,6 @@
 steps:
   - label: ':docker: configure image tag'
     key: 'tag:create'
-    command: |
-      export TAG=tag-test
-      echo "$TAG"
-      buildkite-agent meta-data set "TAG" "$TAG"
-      buildkite-agent step update "label" ":sunglasses: TAG=$TAG"
+    commands:
+      - "TAG=tag-test"
+      - "echo $TAG"
