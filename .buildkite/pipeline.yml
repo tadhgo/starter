@@ -5,3 +5,4 @@ steps:
       - TAG=$(date +%Y-%m-%d)
       - buildkite-agent meta-data set "TAG" "\${TAG}"
       - echo $$TAG
+      - buildkite-agent meta-data get "TAG"
