@@ -4,4 +4,4 @@ steps:
     key: metadata
   - label: "trigger dat build"
     trigger: "dynamic-pipeline-steps-example"
-    depends_on: upload
+    depends_on: metadata
