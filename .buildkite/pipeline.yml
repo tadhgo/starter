@@ -5,5 +5,5 @@ steps:
       - TAG=$(date +%Y-%m-%d)
       - buildkite-agent meta-data set "TAG" "\${TAG}"
       - buildkite-agent meta-data get "TAG"
-      - buildkite-agent step update 'label' ":sunglasses: TAG=\${TAG}"
+      - buildkite-agent step update 'label' "\:sunglasses\: TAG=\${TAG}"
 
