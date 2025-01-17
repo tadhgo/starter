@@ -3,3 +3,4 @@ steps:
     key: 'tag:create'
     commands: |
       echo $$BUILDKITE_BUILD_NUMBER
+      echo "hello"
