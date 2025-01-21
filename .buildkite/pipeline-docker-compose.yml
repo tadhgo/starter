@@ -1,0 +1,6 @@
+steps:
+  - label: ":docker: Wait flag test"
+    plugins:
+      - docker-compose#v5.5.0:
+          run: client
+          wait: true
