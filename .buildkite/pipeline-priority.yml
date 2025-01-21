@@ -2,5 +2,6 @@ steps:
   - command: "echo 'this will run last'"
     priority: -1
   - command: "echo 'this will run first'"
-    priority: 1
+    priority: 100
   - command: "echo 'this will run second'"
+    priority: 50
