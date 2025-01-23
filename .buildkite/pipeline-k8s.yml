@@ -1,17 +1,17 @@
 steps:
 - label: Hello World!
   plugins:
-  - kubernetes:
-      gitEnvFrom:
-        - secretRef:
-            name: git-credentials
-      commandParams:
-        interposer: buildkite  # This is the default, and can be omitted.
-      podSpec:
-        containers:
-        - image: alpine:latest
-          command:
-          - set -euo pipefail
-          - |-       # <-- YAML block scalars work too
-            echo Hello World! > hello.txt
-            cat hello.txt | buildkite-agent annotate
+    - kubernetes:
+        gitEnvFrom:
+          - secretRef:
+              name: git-credentials
+        commandParams:
+          interposer: buildkite  # This is the default, and can be omitted.
+        podSpec:
+          containers:
+          - image: alpine:latest
+            command:
+            - set -euo pipefail
+            - |-       # <-- YAML block scalars work too
+              echo Hello World! > hello.txt
+              cat hello.txt | buildkite-agent annotate
