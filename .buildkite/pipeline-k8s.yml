@@ -1,5 +1,5 @@
 agents:
-  queue: kuberenetes
+  queue: kubernetes
 steps:
 - label: Hello World!
   plugins:
