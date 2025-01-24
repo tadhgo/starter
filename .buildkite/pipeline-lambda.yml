@@ -1,0 +1,6 @@
+agents:
+  queue: "lambda"
+
+steps:
+  - command: "echo 'hello from buildkite job'"
+    label: lambdaaaaaaaaaa 
