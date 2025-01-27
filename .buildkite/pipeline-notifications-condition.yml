@@ -1,11 +1,10 @@
 steps:
   - command: "false"
 
-
 notify:
-  - slack: "@tadhgo"
+  - slack: "@tadhg"
       message: "success"
     if: build.state == "passed"
-  - slack: "tadhg@buildkite.com"
+  - slack: "@tadhg"
       message: "fail"
     if: build.state == "failed"
