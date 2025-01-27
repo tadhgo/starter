@@ -2,9 +2,6 @@ steps:
   - command: "false"
 
 notify:
-  - slack: "@tadhg"
-      message: "success"
+  - slack: "#tadhg-test"
     if: build.state == "passed"
-  - slack: "@tadhg"
-      message: "fail"
-    if: build.state == "failed"
+    message: "success"
