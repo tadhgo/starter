@@ -2,8 +2,8 @@ steps:
   - command: "false"
 
 notify:
-  - slack: "#tadhg-test"
+  - slack:
       channels:
-        - "#general"
+        - "#tadhg-test"
       message: "Success!"
     if: build.state == "passed"
