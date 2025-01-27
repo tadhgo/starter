@@ -1,5 +1,5 @@
 steps:
-  - command: "false"
+  - command: echo 'test'
 
 notify:
   - slack:
