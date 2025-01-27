@@ -3,7 +3,9 @@ steps:
 
 
 notify:
-  - email: "tadhg@buildkite.com"
+  - slack: "@tadhgo"
+      message: "success"
     if: build.state == "passed"
-  - email: "tadhg@buildkite.com"
+  - slack: "tadhg@buildkite.com"
+      message: "fail"
     if: build.state == "failed"
