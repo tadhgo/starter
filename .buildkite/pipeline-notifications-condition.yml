@@ -1,5 +1,6 @@
 steps:
-  - command: echo 'notification test'
+  - command: "false"
+
 
 notify:
   - email: "tadhg@buildkite.com"
