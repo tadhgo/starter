@@ -7,3 +7,8 @@ notify:
         - "#tadhg-test"
       message: "Success!"
     if: build.state == "passed"
+  - slack:
+      channels:
+        - "#tadhg-test"
+      message: "fail!"
+    if: build.state == "failed"
