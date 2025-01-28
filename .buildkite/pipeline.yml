@@ -1,6 +1,13 @@
 steps:
-  - label: ':docker: configure image tag'
-    key: 'tag:create'
-    commands: |
-      echo $$BUILDKITE_BUILD_NUMBER
-      echo "hello"
+  - label: "Verify sudo permissions"
+    command: |
+      echo "Checking buildkite agent logs for sudo permission tests..."
+      if grep "Basic sudo permissions: SUCCESS" /var/log/buildkite-agent/buildkite-agent.log && \
+         grep "Sudo sysctl permissions: SUCCESS" /var/log/buildkite-agent/buildkite-agent.log; then
+        echo "✅ All sudo permission tests passed"
+      else
+        echo "❌ Sudo permission tests failed or not found in logs"
+        echo "Full test output:"
+        grep -A5 "=== Testing sudo permissions ===" /var/log/buildkite-agent/buildkite-agent.log || echo "No test output found"
+        exit 1
+      fi
