@@ -1,6 +1,4 @@
 steps:
   - label: "Verify EC2 startup sudo changes"
     command: |
-      # Check the current keepalive value to verify the EC2 startup script ran
-      current_keepalive=$(sysctl net.ipv4.tcp_keepalive_time)
-      echo "Current keepalive setting: $current_keepalive"
+      cat /proc/sys/net/ipv4/tcp_keepalive_time
