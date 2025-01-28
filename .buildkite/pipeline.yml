@@ -1,13 +1,35 @@
 steps:
-  - label: "Verify sudo permissions"
+  - label: "Verify EC2 boot script sudo permissions"
     command: |
-      echo "Checking buildkite agent logs for sudo permission tests..."
-      if grep "Basic sudo permissions: SUCCESS" /var/log/buildkite-agent/buildkite-agent.log && \
-         grep "Sudo sysctl permissions: SUCCESS" /var/log/buildkite-agent/buildkite-agent.log; then
-        echo "✅ All sudo permission tests passed"
+      # Try both syslog and journald (depending on system)
+      if [ -f /var/log/syslog ]; then
+        log_file="/var/log/syslog"
       else
-        echo "❌ Sudo permission tests failed or not found in logs"
-        echo "Full test output:"
-        grep -A5 "=== Testing sudo permissions ===" /var/log/buildkite-agent/buildkite-agent.log || echo "No test output found"
+        # Use journalctl if syslog not found
+        journalctl -b > /tmp/boot.log
+        log_file="/tmp/boot.log"
+      fi
+
+      echo "Checking boot logs for sudo permission tests..."
+      
+      # Look for our test markers
+      if grep "=== Testing sudo permissions ===" "$log_file"; then
+        echo "Found test markers in boot logs"
+        
+        # Check for successes
+        if grep "Basic sudo permissions: SUCCESS" "$log_file" && \
+           grep "Sudo sysctl permissions: SUCCESS" "$log_file"; then
+          echo "✅ Boot-time sudo permission tests passed"
+          
+          # Verify the current keepalive setting to confirm sysctl changes
+          current_keepalive=$(sysctl net.ipv4.tcp_keepalive_time | awk '{print $3}')
+          echo "Current keepalive setting: $current_keepalive"
+        else
+          echo "❌ Some sudo permission tests failed"
+          grep -A5 "=== Testing sudo permissions ===" "$log_file"
+          exit 1
+        fi
+      else
+        echo "❌ Could not find sudo permission test markers in boot logs"
         exit 1
       fi
