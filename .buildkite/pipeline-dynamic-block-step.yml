@@ -4,6 +4,7 @@ steps:
     soft_fail: true
     key: 'step1'
   - wait: ~
+  - command: buildkite-agent env dump
   - command: |
       if [ $(buildkite-agent step get "outcome" --step "step1") == "soft_failed" ]; then
          cat <<- YAML | buildkite-agent pipeline upload 
