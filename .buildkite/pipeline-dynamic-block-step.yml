@@ -1,6 +1,6 @@
 steps:
   - command: exit -1
-    labal: "linting command"
+    label: "linting command"
     soft_fail: true
     key: 'step1'
   - wait: ~
