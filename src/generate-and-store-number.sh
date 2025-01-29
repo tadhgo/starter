@@ -8,7 +8,7 @@ function generate_number() {
 
 parallel_index=${1:-}
 
-generated_number=$(generate_number)
+generated_number=100
 
 if [[ -n "$parallel_index" ]]; then
   ( set -x ; buildkite-agent meta-data set "generated-number::$parallel_index" "${generated_number}" )
