@@ -1,0 +1,35 @@
+steps:
+  - label: "Test stdout"
+    command: |
+      echo "Regular stdout message"
+      echo "Another line of output"
+      echo -e "\033[32mColored green text\033[0m"
+  
+  - label: "Test stderr"
+    command: |
+      echo "This goes to stdout"
+      >&2 echo "This goes to stderr"
+      >&2 echo "Another stderr message"
+
+  - label: "Test mixed output"
+    command: |
+      for i in {1..3}; do
+        echo "stdout line $i"
+        >&2 echo "stderr line $i"
+        sleep 1
+      done
+
+  - label: "Test multiline output"
+    command: |
+      cat << EOF
+      This is a multiline
+      block of text that
+      should be captured
+      with proper newlines
+      EOF
+
+  - label: "Test command failure"
+    command: |
+      echo "About to fail..."
+      exit 1
+    soft_fail: true
