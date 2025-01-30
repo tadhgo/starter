@@ -3,4 +3,4 @@ steps:
     command: buildkite-agent meta-data set "foo" "bar" 
     key: metadata
   - label: reading log file location
-    command: echo '$$BUILDKITE_ENABLE_JOB_LOG_TMPFILE'
+    command: echo '$BUILDKITE_ENABLE_JOB_LOG_TMPFILE'
