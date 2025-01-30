@@ -5,3 +5,5 @@ steps:
   - label: "trigger dat build"
     trigger: "dynamic-pipeline-steps-example"
     depends_on: metadata
+  - label: reading log file location
+    command: echo '$BUILDKITE_ENABLE_JOB_LOG_TMPFILE'
