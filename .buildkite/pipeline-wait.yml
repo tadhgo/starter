@@ -1,0 +1,3 @@
+steps:
+  - label: wait 60 seconds
+    command: sleep 60
