@@ -4,4 +4,4 @@ steps:
   - command: "echo 'this will run first'"
     priority: 100
   - command: "echo 'this will run second'"
-    priority: 50
+    priority: 51
