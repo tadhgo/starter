@@ -1,0 +1,6 @@
+steps:
+- label: "Example Script"
+    command: env
+    notify:
+      - github_commit_status:
+          context: "my-custom-status"
