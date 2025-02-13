@@ -37,3 +37,9 @@ steps:
       pwd
       echo "### Files:"
       ls -lah
+  - label: "Additional commands"
+    command: |
+      mount | column -t
+      df -hi
+      touch /etc/testfile && ls -lah /etc/testfile
+      ulimit -a
