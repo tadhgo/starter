@@ -2,5 +2,38 @@ agents:
   queue: "lambda"
 
 steps:
-  - command: "echo 'hello from buildkite job'"
-    label: lambdaaaaaaaaaa 
+  - label: "Print Buildkite & Lambda Environment Variables"
+    command: |
+      echo "### Buildkite Environment Variables"
+      env | sort | grep BUILDKITE || true
+      echo "### AWS Environment Variables"
+      env | sort | grep AWS || true
+      echo "### General Environment Variables"
+      env | sort || true
+
+  - label: "Sanity Check: AWS Credentials"
+    command: |
+      echo "Checking AWS credentials..."
+      aws sts get-caller-identity
+      echo "AWS credentials are valid."
+
+  - label: "Sanity Check: Disk Space"
+    command: |
+      echo "Checking available disk space..."
+      df -h
+
+  - label: "Test Buildkite Job Execution"
+    command: |
+      echo "This is a test Buildkite job running inside the Lambda Buildkite Agent!"
+      echo "Buildkite Agent Name: $BUILDKITE_AGENT_NAME"
+      echo "Queue: $BUILDKITE_AGENT_META_DATA_QUEUE"
+      echo "Pipeline Slug: $BUILDKITE_PIPELINE_SLUG"
+      echo "Branch: $BUILDKITE_BRANCH"
+      echo "Build Number: $BUILDKITE_BUILD_NUMBER"
+
+  - label: "List Files in Working Directory"
+    command: |
+      echo "### Current Working Directory:"
+      pwd
+      echo "### Files:"
+      ls -lah
