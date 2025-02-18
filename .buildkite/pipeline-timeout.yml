@@ -6,4 +6,7 @@ steps:
       automatic:
         - exit_status: 255
           limit: 0
+          signal_reason: cancel
+        - exit_status: 255
+          limit: 1
           signal_reason: none
