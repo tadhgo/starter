@@ -2,3 +2,9 @@ steps:
   - label: Timeout test
     command: sleep 120
     timeout_in_minutes: 1
+    retry:
+      automatic:
+        - exit_status: -1 
+          limit: 2
+        - signal: "SIGTERM"
+          limit: 0
