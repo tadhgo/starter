@@ -4,7 +4,7 @@ steps:
     timeout_in_minutes: 1
     retry:
       automatic:
-        - exit_status: -1 
+        - exit_status: 255
           limit: 2
         - signal: "SIGTERM"
           limit: 0
