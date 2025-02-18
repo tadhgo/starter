@@ -6,4 +6,4 @@ steps:
       automatic:
         - exit_status: 255
           limit: 2
-          if: "build.env['BUILDKITE_TIMEOUT'] != 'false'"
+        if: "build.env['BUILDKITE_TIMEOUT'] != 'false'"
