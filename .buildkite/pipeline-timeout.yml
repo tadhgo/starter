@@ -1,0 +1,3 @@
+steps:
+  - label: Timeout test
+    command: sleep 120
