@@ -6,5 +6,4 @@ steps:
       automatic:
         - exit_status: 255
           limit: 2
-        - signal: "SIGTERM"
-          limit: 0
+          if: "build.env['BUILDKITE_TIMEOUT'] != 'false'"
