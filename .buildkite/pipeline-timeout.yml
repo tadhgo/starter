@@ -6,5 +6,5 @@ steps:
       automatic:
         - exit_status: 255
           limit: 2
-        - signal: "SIGKILL"
+        - signal: "SIGQUIT"
           limit: 0
