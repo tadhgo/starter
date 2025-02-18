@@ -5,8 +5,5 @@ steps:
     retry:
       automatic:
         - exit_status: 255
-          limit: 2
-          signal_reason: cancel
-        - exit_status: 255
           limit: 0
           signal_reason: none
