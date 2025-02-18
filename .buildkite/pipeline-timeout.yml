@@ -9,10 +9,3 @@ steps:
           signal_reason: cancel
         - exit_status: 255
           limit: 2
-          signal_reason: none
-        - exit_status: -1
-          limit: 0
-          signal_reason: cancel
-        - exit_status: -1
-          limit: 2
-          signal_reason: none
