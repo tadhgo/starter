@@ -11,17 +11,6 @@ steps:
       echo "### General Environment Variables"
       env | sort || true
 
-  - label: "Sanity Check: AWS Credentials"
-    command: |
-      echo "Checking AWS credentials..."
-      aws sts get-caller-identity
-      echo "AWS credentials are valid."
-
-  - label: "Sanity Check: Disk Space"
-    command: |
-      echo "Checking available disk space..."
-      df -h
-
   - label: "Test Buildkite Job Execution"
     command: |
       echo "This is a test Buildkite job running inside the Lambda Buildkite Agent!"
@@ -37,9 +26,3 @@ steps:
       pwd
       echo "### Files:"
       ls -lah
-  - label: "Additional commands"
-    command: |
-      mount | column -t
-      df -hi
-      touch /etc/testfile && ls -lah /etc/testfile
-      ulimit -a
